@@ -1,33 +1,5 @@
 const CARDS_CONTAINER = document.querySelector("#card-container");
 
-// Función para crear una tarjeta de usuario
-function cartaDeUsuario(user) {
-    var card = document.createElement("div");
-    var name_section = document.createElement("h3");
-    var desc_section = document.createElement("p");
-    var age_section = document.createElement("p");
-    var book_section = document.createElement("div");
-
-    // Lista de libros
-    var bookList = user.fav_books.books.map((e) => {
-        var item = document.createElement("ul");
-        item.textContent = e;
-        return item;
-    });
-
-    // Inyectar información del usuario
-    name_section.textContent = user.username;
-    desc_section.textContent = user.desc;
-    age_section.textContent = "Edad: " + user.age;
-    book_section.append(...bookList);
-
-    // Añadir secciones a la tarjeta
-    card.append(name_section, desc_section, age_section, book_section);
-
-    // Añadir tarjeta al contenedor
-    CARDS_CONTAINER.appendChild(card);
-}
-
 // Datos de usuarios
 const users = [
     {
@@ -72,6 +44,34 @@ const users = [
         },
     }
 ];
+
+// Función para crear una tarjeta de usuario
+function cartaDeUsuario(user) {
+    var card = document.createElement("div");
+    var name_section = document.createElement("h3");
+    var desc_section = document.createElement("p");
+    var age_section = document.createElement("p");
+    var book_section = document.createElement("div");
+
+    // Lista de libros
+    var bookList = user.fav_books.books.map((e) => {
+        var item = document.createElement("ul");
+        item.textContent = e;
+        return item;
+    });
+
+    // Inyectar información del usuario
+    name_section.textContent = user.username;
+    desc_section.textContent = user.desc;
+    age_section.textContent = "Edad: " + user.age;
+    book_section.append(...bookList);
+
+    // Añadir secciones a la tarjeta
+    card.append(name_section, desc_section, age_section, book_section);
+
+    // Añadir tarjeta al contenedor
+    CARDS_CONTAINER.appendChild(card);
+}
 
 // Mostrar y crear tarjetas para cada usuario
 users.forEach((user) => {
