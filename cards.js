@@ -1,7 +1,7 @@
 const CARDS_CONTAINER = document.querySelector("#card-container");
 
 // Función para crear una tarjeta de usuario
-function createUserCard(user) {
+function cartaDeUsuario(user) {
     var card = document.createElement("div");
     var name_section = document.createElement("h3");
     var desc_section = document.createElement("p");
@@ -9,9 +9,9 @@ function createUserCard(user) {
     var book_section = document.createElement("div");
 
     // Lista de libros
-    var bookList = user.fav_books.books.map((libro) => {
+    var bookList = user.fav_books.books.map((e) => {
         var item = document.createElement("ul");
-        item.textContent = libro;
+        item.textContent = e;
         return item;
     });
 
@@ -32,7 +32,7 @@ function createUserCard(user) {
 const users = [
     {
         id: 1,
-        username: 'User Name 1',
+        username: 'Usuario 1',
         desc: 'Descripción del usuario 1',
         age: 26,
         fav_books: {
@@ -47,7 +47,7 @@ const users = [
     },
     {
         id: 2,
-        username: 'User Name 2',
+        username: 'Usuario 2',
         desc: 'Descripción del usuario 2',
         age: 30,
         fav_books: {
@@ -57,10 +57,23 @@ const users = [
                 "El señor de los anillos",
             ],
         },
+    },
+    {
+        id: 3,
+        username: 'Usuario 3',
+        desc: 'Descripción del usuario 3',
+        age: 16,
+        fav_books: {
+            books: [
+                "Carry On",
+                "One One",
+                "Mr. Sr.",
+            ],
+        },
     }
 ];
 
 // Mostrar y crear tarjetas para cada usuario
 users.forEach((user) => {
-    createUserCard(user);
+    cartaDeUsuario(user);
 });
